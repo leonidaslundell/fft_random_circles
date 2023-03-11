@@ -1,11 +1,6 @@
-//<script src="path/to/p5.sound.js"></script>
-
 let mic, fft;
 
-let canvas_width = 700
-let canvas_height = 700
-
-let min_point = 10
+let min_point = 2
 let max_point = 150
 
 function setup() {
@@ -20,12 +15,10 @@ function setup() {
   fft = new p5.FFT();
   fft.setInput(mic);
   
-  print(windowWidth)
-  print(windowHeight)
 }
 
 function draw() {
-  background(10, 50);
+  background(0, 100);
   spectrum = fft.analyze()
   
 
@@ -73,8 +66,8 @@ function line_draw(x, y, col, size = 300, step = 1){
 
 function fuzz_draw(x, y, col, step = 1){
   
-  circle_x = random(canvas_height) 
-  circle_y = random(canvas_width)
+  circle_x = random(displayWidth) 
+  circle_y = random(displayHeight)
   
   
   for(jiggle = 0.25; jiggle < 100; jiggle += .25){

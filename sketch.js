@@ -10,26 +10,25 @@ let max_point = 150
 
 function setup() {
   
-  createCanvas(canvas_width, canvas_height);
+  //displayWidth takes device size
+  createCanvas(displayWidth, displayHeight);
   frameRate(10);
   
   // setting up the audio;
   mic = new p5.AudioIn();
   mic.start();
   fft = new p5.FFT();
-  fft.setInput(mic); 
+  fft.setInput(mic);
+  
+  print(windowWidth)
+  print(windowHeight)
 }
 
 function draw() {
   background(10, 50);
   spectrum = fft.analyze()
   
-  //beginShape();
-  //for (i = 0; i < spectrum.length; i++) {
-  //  vertex(i, map(spectrum[i], 0, 255, height, 0));
-  //}
-  //endShape();
-  
+
   bass = map(fft.getEnergy(16, 200), 0, 255, 
              min_point, max_point)
   lowMid = map(fft.getEnergy(201, 400), 0, 255, 

@@ -76,9 +76,7 @@ function fuzz_draw(x, y, col, step = 1){
   circle_x = random(canvas_height) 
   circle_y = random(canvas_width)
   
-  //x = x * size
-  //y = y * size
-    
+  
   for(jiggle = 0.25; jiggle < 100; jiggle += .25){
     
     fill(color(col))
@@ -94,18 +92,6 @@ function fuzz_draw(x, y, col, step = 1){
   }
 }
 
-function dumb(){
-  //bass = spectrum.getEnergy("bass")
-  //lowMid = spectrum.getEnergy("lowMid")
-  //mid = spectrum.getEnergy("mid")
-  //highMid = spectrum.getEnergy("highMid")
-  //treble = spectrum.getEnergy("treble")
-  
-  testing(freq_1, freq_1, '#9400D3')
-  testing(freq_1, freq_1, '#4B0082')
-  testing(freq_1, freq_1, '#0000FF')
-  testing(freq_1, freq_1, '#00FF00')
-  testing(freq_1, freq_1, '#FFFF00')
-  testing(freq_1, freq_1, '#FF7F00')
-  testing(freq_1, freq_1, '#FF0000')
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
